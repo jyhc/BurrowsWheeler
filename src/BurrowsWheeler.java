@@ -9,7 +9,7 @@ public class BurrowsWheeler {
         StringBuilder builder = new StringBuilder(csa.length());
         for(int i = 0; i < csa.length(); i++) {
             if(csa.index(i) == 0) StdOut.print(i);
-            StdOut.print( + "\n");
+            StdOut.print(+ "\n");
         }
     }
 
