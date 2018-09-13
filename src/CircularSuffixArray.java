@@ -16,15 +16,15 @@ public class CircularSuffixArray {
             index[i] = i;
         }
         StdRandom.shuffle(index);
-        ThreeWaySort(s, index);
+        threeWaySort(s, index);
     }
     
     //three way sort code based on 3 way string sort from course adapted to sorting with index array
-    private void ThreeWaySort(String a, int[] index) { 
-        ThreeWaySort(index, a, 0, a.length() - 1, 0); 
+    private void threeWaySort(String a, int[] index) { 
+        threeWaySort(index, a, 0, a.length() - 1, 0); 
     }
     
-    private void ThreeWaySort(int[] index, String s, int lo, int hi, int d) {
+    private void threeWaySort(int[] index, String s, int lo, int hi, int d) {
         if (hi <= lo) return;
         int lt = lo, gt = hi;
         int v = charAt(s, index[lo], d);
@@ -36,9 +36,9 @@ public class CircularSuffixArray {
             else if (t > v) exch(index, i, gt--);
             else i++;
         }
-        ThreeWaySort(index, s, lo, lt-1, d);
-        ThreeWaySort(index, s, lt, gt, d+1);
-        ThreeWaySort(index, s, gt+1, hi, d);
+        threeWaySort(index, s, lo, lt-1, d);
+        threeWaySort(index, s, lt, gt, d+1);
+        threeWaySort(index, s, gt+1, hi, d);
     }
     
     private int charAt(String s, int start, int d) { 
@@ -66,9 +66,8 @@ public class CircularSuffixArray {
         String s = in.readAll();
         CircularSuffixArray csa = new CircularSuffixArray(s);
         for(int i = 0; i < csa.length(); i++) {
-            StdOut.print(csa.index(i) + "\n");
+            StdOut.print(csa.index(i)+"\n");
         }
-        
     }
        
 }
